@@ -1,0 +1,15 @@
+{
+  "build": {
+    "buildPath": "build",
+    "progress": "minimal",
+    "mode": "development",
+    "sourceMaps": "source-map"
+  },
+  "dev": {
+    "port": 2210,
+    "url": "http://localhost:2210"
+  },
+  "front": {
+    "version": "alfa"
+  }
+}

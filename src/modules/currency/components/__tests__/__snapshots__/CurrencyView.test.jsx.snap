@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="form"
+>
+  <div
+    className="form_buttons"
+  >
+    <select
+      onChange={[Function]}
+      value=""
+    >
+      <option
+        value=""
+      >
+        ---
+      </option>
+      <option
+        value="EUR_USD"
+      >
+        EUR_USD
+      </option>
+      <option
+        value="EUR_RUB"
+      >
+        EUR_RUB
+      </option>
+      <option
+        value="USD_RUB"
+      >
+        USD_RUB
+      </option>
+    </select>
+  </div>
+  <br />
+</div>
+`;
