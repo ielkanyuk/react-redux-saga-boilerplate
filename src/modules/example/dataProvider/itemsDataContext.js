@@ -1,4 +1,4 @@
-import { httpService } from "../../../dataProvider/httpService";
+import { httpService } from "../../../common/dataProvider/httpService";
 import * as mapper from './itemsMapper';
 
 export const getItemsList = () =>

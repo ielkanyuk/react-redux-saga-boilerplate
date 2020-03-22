@@ -1,12 +1,7 @@
 import itemsReducer from './reducers/itemsReducer';
 import { getRoutes } from './routes';
-import { BaseModule } from '../';
-import documentsSagas from './sagas/documents';
-import allDocsSagas from './sagas/allDocsSagas';
-import catalogSagas from './sagas/catalog';
-import outgoingForeignTransferSagas from './sagas/outgoingForeignTransfer';
-import clientsReducer from './reducers/clientsReducer';
-import clientsSagas from './sagas/clientsSagas';
+import { BaseModule } from '../BaseModule';
+import itemsSagas from './sagas/itemsSagas';
 
 class ExampleModule extends BaseModule {
     /**
@@ -30,6 +25,7 @@ class ExampleModule extends BaseModule {
      */
     getSagas() {
         return [
+            itemsSagas(),
         ];
     }
 }

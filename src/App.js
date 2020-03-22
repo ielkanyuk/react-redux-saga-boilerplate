@@ -2,11 +2,12 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import configureRedux from './redux';
 import {Router} from 'react-router-dom';
+import ExampleModule from './modules/example/module';
 
 import logo from './logo.svg';
 import './App.css';
 
-const modules = [];
+const modules = [ExampleModule];
 const {store, routes, history} = configureRedux({modules, initState: {}});
 
 export default class App extends React.Component {
