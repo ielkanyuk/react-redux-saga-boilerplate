@@ -1,7 +1,0 @@
-{
-  "build": {
-    "progress": "expanded",
-    "mode": "production",
-    "sourceMaps": ""
-  }
-}

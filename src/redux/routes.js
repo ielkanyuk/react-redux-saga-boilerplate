@@ -1,13 +1,3 @@
-const getRouteFromSection = routesObject => Object.keys(routesObject).reduce((prev, key) => {
-    const route = routesObject[key];
-
-    if (route.nested) {
-        route.nested = getRouteFromSection(route.nested);
-    }
-
-    return [...prev, route];
-}, []);
-
 /**
  * React-router v4 declarative mode style
  * Route Flags
@@ -25,8 +15,20 @@ const getRouteFromSection = routesObject => Object.keys(routesObject).reduce((pr
  * Reduce object with routes to array
  * @param modules {[ApplicationModule]}
  */
-export const configureRoutes = modules => modules.reduce((routes, module) => {
-    const routesObject = module.getRoutes();
-    const routesArray = getRouteFromSection(routesObject);
-    return [...routes, ...routesArray];
-}, []);
+export const configureRoutes = (modules) => {
+    return modules.reduce((routes, module) => {
+      const routesObject = module.getRoutes();
+      const routesArray = getRouteFromSection(routesObject);
+      return [...routes, ...routesArray];
+    }, []);
+  };
+  
+  function getRouteFromSection(routesObject) {
+    return Object.keys(routesObject).reduce((prev, key) => {
+      const route = routesObject[key];
+      if (route.nested) {
+        route.nested = getRouteFromSection(route.nested);
+      }
+      return [...prev, route];
+    }, []);
+  }

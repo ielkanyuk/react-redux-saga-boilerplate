@@ -1,24 +1,24 @@
-import { applyMiddleware } from 'redux';
+import {applyMiddleware} from 'redux';
 
 /**
  * Inject custom middlewares from each modules
- * @param modules {[BaseModule]}
+ * @param modules {[ApplicationModule]}
  * @param customMiddleWares
  * @return {*[]}
  */
 export const configureMiddlewares = (modules, ...customMiddleWares) => {
-    const composerFuncs = [];
-    const middlewares = [...customMiddleWares];
+	let middlewares = [...customMiddleWares];
+	const composerFuncs = [];
+	
+	modules.forEach((module) => {
+    	const moduleWares = module.getMiddlewares();
+    	if (moduleWares) {
+      		middlewares = [...middlewares, ...moduleWares];
+    	}
+  	});
 
-    modules.forEach((module) => {
-        const moduleWares = module.getMiddlewares();
-        if (moduleWares) {
-            middlewares.push(...moduleWares);
-        }
-    });
-
-    return [
-        applyMiddleware(...middlewares.filter(s => !!s)),
-        ...composerFuncs,
-    ];
+  	return [
+	  	applyMiddleware(...middlewares),
+	  	...composerFuncs,
+  	];
 };

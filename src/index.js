@@ -1,7 +1,14 @@
-import '@babel/polyfill';
-import './markup/stylus/style.styl';
 import React from 'react';
-import { render } from 'react-dom';
-import { App } from './App';
+import {render} from 'react-dom';
+import './index.css';
+import App from './App';
+//import * as serviceWorker from './serviceWorker';
 
-render(React.createElement(App), document.getElementById('container'));
+render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+//serviceWorker.unregister();
