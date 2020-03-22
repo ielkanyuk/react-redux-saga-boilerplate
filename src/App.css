@@ -24,6 +24,25 @@
   color: white;
 }
 
+.App-header ul{
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.App-header li {
+  display: inline; /* Отображать как строчный элемент */
+  margin-right: 10px; /* Отступ слева */
+ }
+
+ .App-header li:not(:first-child):before {
+  content: '⋮';
+  position: absolute; top: 50%; left: 0;      
+  width: 1px;
+  height: 16px;
+  margin-top: -8px;
+}
+
 .App-link {
   color: #61dafb;
 }
